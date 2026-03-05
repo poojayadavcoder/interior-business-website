@@ -511,6 +511,12 @@ h2 { font-size: clamp(2rem, 4vw, 3rem); }
   .home-projects-grid {
     grid-template-columns: 1fr;
   }
+  .projects-home,
+  .designer-profile,
+  .expertise-strip,
+  .cta-section {
+    padding: 60px 20px !important;
+  }
 }
 
 /* Testimonials */
@@ -686,7 +692,7 @@ h2 { font-size: clamp(2rem, 4vw, 3rem); }
 
 .page-hero h1 {
   margin-bottom: 15px;
-  font-size: clamp(3rem, 6vw, 3.5rem);
+  font-size: clamp(2rem, 6vw, 3.5rem);
 }
 
 .page-hero p {
@@ -750,18 +756,86 @@ h2 { font-size: clamp(2rem, 4vw, 3rem); }
   }
 }
 
+.contact-section {
+  padding: 120px 5%;
+}
+
+.google-map-section {
+  height: 450px;
+  width: 100%;
+  margin-top: 10px;
+}
+
 /* Contact Styles */
 .contact-grid {
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 60px;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 80px;
 }
 
-.contact-info-card {
+.contact-title {
+  font-size: 3rem;
+  margin-bottom: 40px;
+}
+
+.contact-form-card {
+  background: white;
+  padding: 60px;
+  border-radius: 40px;
+  border: 1px solid var(--border);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+}
+
+.form-title {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.form-desc {
+  color: var(--text-muted);
+  margin-bottom: 40px;
+}
+
+.form-group label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  padding: 15px 20px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
   background: var(--bg-offset);
-  padding: 40px;
-  border-radius: var(--border-radius);
-  height: fit-content;
+  outline: none;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.contact-form textarea {
+  resize: none;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 18px;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
 }
 
 .info-item {
@@ -784,7 +858,7 @@ h2 { font-size: clamp(2rem, 4vw, 3rem); }
 .contact-form {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 25px;
 }
 
 .form-group {
@@ -819,16 +893,123 @@ h2 { font-size: clamp(2rem, 4vw, 3rem); }
   box-shadow: 0 0 0 4px rgba(197, 160, 89, 0.1);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .contact-grid {
     grid-template-columns: 1fr;
+    gap: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 60px 20px !important;
+  }
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .contact-title {
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+  }
+  .contact-form-card {
+    padding: 40px 25px;
+    border-radius: 30px;
+  }
+  .form-title {
+    font-size: 1.75rem;
   }
   .contact-form {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
   .form-group.full {
     grid-column: span 1;
   }
+  .google-map-section {
+    height: 300px !important;
+  }
+}
+
+/* Contact Info Item Styles */
+.info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.info-card-item {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.info-icon {
+  font-size: 2rem;
+  color: var(--primary);
+  background: var(--bg-offset);
+  padding: 15px;
+  border-radius: 15px;
+  display: flex;
+}
+
+.info-link {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--secondary);
+  display: block;
+  white-space: pre-line;
+  word-break: break-all; /* Prevent long emails from breaking layout */
+}
+
+@media (max-width: 480px) {
+  .info-card-item {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .info-icon {
+    font-size: 1.5rem;
+    padding: 12px;
+  }
+  .info-link, 
+  .info-card-item p {
+    font-size: 1.1rem !important;
+  }
+}
+
+/* WhatsApp CTA Box */
+.whatsapp-cta {
+  margin-top: 60px;
+  padding: 30px;
+  background: var(--secondary);
+  border-radius: 24px;
+  color: white;
+}
+
+.whatsapp-cta h4 {
+  margin-bottom: 10px;
+}
+
+.whatsapp-cta p {
+  opacity: 0.8;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  color: white !important;
+}
+
+.btn-whatsapp {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #25D366 !important;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.btn-whatsapp:hover {
+  opacity: 0.8;
+  transform: translateX(5px);
 }
 
 /* About Page - Designer Profile */
@@ -1051,8 +1232,36 @@ h2 { font-size: clamp(2rem, 4vw, 3rem); }
 }
 
 @media (max-width: 576px) {
+  .footer {
+    text-align: center;
+  }
   .footer-grid {
     grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+  .footer-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-col h4 {
+    margin-bottom: 20px;
+  }
+  .footer-links li {
+    justify-content: center;
+    width: 100%;
+  }
+  .footer-col p {
+    margin: 20px auto 0 !important;
+    max-width: 100% !important;
+  }
+  .footer-logo-wrap, .footer-col .logo {
+    justify-content: center;
+  }
+  .footer-socials {
+    justify-content: center;
+    width: 100%;
   }
   .footer-bottom {
     flex-direction: column;

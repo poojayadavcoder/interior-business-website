@@ -94,9 +94,9 @@ export default function Contact() {
       </section>
 
       {/* Contact Content */}
-      <section className="contact-section" style={{ padding: '120px 20px' }}>
+      <section className="contact-section">
         <div className="container">
-          <div className="contact-grid" style={{ gridTemplateColumns: '1fr 1.5fr', gap: '100px' }}>
+          <div className="contact-grid">
             {/* Contact Info Sidebar */}
             <motion.div 
               className="contact-info-wrap"
@@ -106,18 +106,18 @@ export default function Contact() {
               transition={{ duration: 0.8 }}
             >
               <span className="subtitle" style={{ color: 'var(--primary)', letterSpacing: '3px', textTransform: 'uppercase', fontWeight: 600, display: 'block', marginBottom: '15px' }}>Connect</span>
-              <h2 style={{ fontSize: '3rem', marginBottom: '40px' }}>Contact Details</h2>
+              <h2 className="contact-title">Contact Details</h2>
               
-              <div className="info-list" style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
+              <div className="info-list">
                 {contactInfo.map((info, i) => (
-                  <div key={i} className="info-card-item" style={{ display: 'flex', gap: '20px', alignItems: 'flex-start' }}>
-                    <div className="info-icon" style={{ fontSize: '2rem', color: 'var(--primary)', background: 'var(--bg-offset)', padding: '15px', borderRadius: '15px', display: 'flex' }}>
+                  <div key={i} className="info-card-item">
+                    <div className="info-icon">
                       {info.icon}
                     </div>
                     <div>
                       <h4 style={{ textTransform: 'uppercase', fontSize: '0.8rem', letterSpacing: '2px', color: 'var(--text-muted)', marginBottom: '5px' }}>{info.title}</h4>
                       {info.link ? (
-                        <a href={info.link} className="info-link" style={{ fontSize: '1.25rem', fontWeight: 500, color: 'var(--secondary)', display: 'block', whiteSpace: 'pre-line' }}>{info.desc}</a>
+                        <a href={info.link} className="info-link">{info.desc}</a>
                       ) : (
                         <p style={{ fontSize: '1.25rem', fontWeight: 500, color: 'var(--secondary)', whiteSpace: 'pre-line' }}>{info.desc}</p>
                       )}
@@ -127,11 +127,11 @@ export default function Contact() {
               </div>
 
               {/* Quick WhatsApp CTA */}
-              <div style={{ marginTop: '60px', padding: '30px', background: 'var(--secondary)', borderRadius: '24px', color: 'white' }}>
-                <h4 style={{ marginBottom: '10px' }}>Instant Consultation</h4>
-                <p style={{ opacity: 0.8, marginBottom: '20px', fontSize: '0.9rem' }}>Message us on WhatsApp for a quick response.</p>
-                <a href="#" className="btn-whatsapp" style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#25D366', fontWeight: 600, textDecoration: 'none' }}>
-                  <RiWhatsappLine style={{ fontSize: '1.5rem' }} /> Available for Chat
+              <div className="whatsapp-cta">
+                <h4>Instant Consultation</h4>
+                <p>Message us on WhatsApp for a quick response.</p>
+                <a href="https://wa.me/918299844XXX" target="_blank" rel="noopener noreferrer" className="btn-whatsapp">
+                  <RiWhatsappLine /> Available for Chat
                 </a>
               </div>
             </motion.div>
@@ -143,17 +143,15 @@ export default function Contact() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              style={{ background: 'white', padding: '60px', borderRadius: '40px', border: '1px solid var(--border)', boxShadow: '0 20px 40px rgba(0,0,0,0.03)' }}
             >
               {!isSubmitted ? (
                 <>
-                  <h3 style={{ fontSize: '2rem', marginBottom: '10px' }}>Send An Inquiry</h3>
-                  <p style={{ color: 'var(--text-muted)', marginBottom: '40px' }}>Fill out the form below and Puneet will get back to you within 24 hours.</p>
+                  <h3 className="form-title">Send An Inquiry</h3>
+                  <p className="form-desc">Fill out the form below and Puneet will get back to you within 24 hours.</p>
 
                   <form 
                     className="contact-form" 
                     onSubmit={handleSubmit} 
-                    style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '25px' }}
                   >
                     {/* Web3Forms Access Key - You get this from web3forms.com */}
                     <input type="hidden" name="access_key" value="432a9896-160c-46c6-bbb4-f39374c65cb9" />
@@ -161,20 +159,20 @@ export default function Contact() {
                     <input type="hidden" name="from_name" value="Puneet Portfolio" />
 
                     <div className="form-group">
-                      <label style={{ fontSize: '0.8rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '8px', display: 'block' }}>Your Name</label>
-                      <input name="name" type="text" placeholder="Enter full name" style={{ width: '100%', padding: '15px 20px', borderRadius: '12px', border: '1px solid var(--border)', background: 'var(--bg-offset)', outlineColor: 'var(--primary)' }} required />
+                      <label>Your Name</label>
+                      <input name="name" type="text" placeholder="Enter full name" required />
                     </div>
                     <div className="form-group">
-                      <label style={{ fontSize: '0.8rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '8px', display: 'block' }}>Email Address</label>
-                      <input name="email" type="email" placeholder="email@example.com" style={{ width: '100%', padding: '15px 20px', borderRadius: '12px', border: '1px solid var(--border)', background: 'var(--bg-offset)', outlineColor: 'var(--primary)' }} required />
+                      <label>Email Address</label>
+                      <input name="email" type="email" placeholder="email@example.com" required />
                     </div>
                     <div className="form-group">
-                      <label style={{ fontSize: '0.8rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '8px', display: 'block' }}>Phone Number</label>
-                      <input name="phone" type="tel" placeholder="+91" style={{ width: '100%', padding: '15px 20px', borderRadius: '12px', border: '1px solid var(--border)', background: 'var(--bg-offset)', outlineColor: 'var(--primary)' }} />
+                      <label>Phone Number</label>
+                      <input name="phone" type="tel" placeholder="+91" />
                     </div>
                     <div className="form-group">
-                      <label style={{ fontSize: '0.8rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '8px', display: 'block' }}>Service Type</label>
-                      <select name="service" style={{ width: '100%', padding: '15px 20px', borderRadius: '12px', border: '1px solid var(--border)', background: 'var(--bg-offset)', outlineColor: 'var(--primary)', cursor: 'pointer' }}>
+                      <label>Service Type</label>
+                      <select name="service">
                         <option>Interior Consultation</option>
                         <option>Modular Kitchen</option>
                         <option>Wardrobe Solutions</option>
@@ -182,15 +180,14 @@ export default function Contact() {
                       </select>
                     </div>
                     <div className="form-group full" style={{ gridColumn: 'span 2' }}>
-                      <label style={{ fontSize: '0.8rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '8px', display: 'block' }}>How can we help?</label>
-                      <textarea name="message" rows="5" placeholder="Share your project details, dimensions, or vision..." style={{ width: '100%', padding: '15px 20px', borderRadius: '12px', border: '1px solid var(--border)', background: 'var(--bg-offset)', outlineColor: 'var(--primary)', resize: 'none' }} required></textarea>
+                      <label>How can we help?</label>
+                      <textarea name="message" rows="5" placeholder="Share your project details, dimensions, or vision..." required></textarea>
                     </div>
-                    <div className="form-group full" style={{ gridColumn: 'span 2' }}>
+                    <div className="form-group full">
                       <button 
                         type="submit" 
-                        className="btn btn-primary" 
+                        className="btn btn-primary btn-submit" 
                         disabled={isSubmitting}
-                        style={{ width: '100%', padding: '18px', fontSize: '1.1rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', opacity: isSubmitting ? 0.7 : 1 }}
                       >
                         {isSubmitting ? 'Sending Request...' : 'Send Message'} <RiSendPlaneFill />
                       </button>
@@ -221,11 +218,7 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Google Map Section */}
-     <section
-       className="google-map-section"
-       style={{ height: "450px", width: "100%", marginTop: "10px" }}
-      >   
+      <section className="google-map-section">
   <iframe
     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14426.37554526649!2d82.98404245!3d25.3176452!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398e2db77d13e33f%3A0xe5398d363765108!2sVaranasi%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1709653638241!5m2!1sen!2sin"
     width="100%"

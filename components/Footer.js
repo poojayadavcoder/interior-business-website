@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="container">
-        <div className="footer-grid" style={{ gridTemplateColumns: '1.5fr 1fr 1fr' }}>
+        <div className="footer-grid">
           {/* Branding Column */}
           <div className="footer-col">
             <Link href="/" className="logo">
